@@ -51,10 +51,10 @@ input,textarea,select,button{font-family:inherit}
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 <div>
 
-<section ref="{{ heroImgRef }}" style="position:relative;height:135vh;overflow:hidden">
+<section ref="{{ heroImgRef }}" style="position:relative;height:150vh;overflow:hidden">
 <div ref="{{ heroStickyRef }}" style="position:sticky;top:0;height:{{ heroStickyH }};overflow:hidden">
 <img ref="{{ heroPicRef }}" src="uploads/ChatGPT Image 5. Aug. 2026, 18_41_30.png" alt="Wallbox mit POTI-Logo an modernem Haus in der Abenddämmerung" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1);transform-origin:22% 57%;will-change:transform;backface-visibility:hidden">
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,28,.05) 0%,rgba(20,23,28,.10) 38%,rgba(20,23,28,.55) 68%,rgba(20,23,28,.92) 88%,rgba(20,23,28,1) 100%)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,28,.05) 0%,rgba(20,23,28,.08) 62%,rgba(20,23,28,.28) 84%,rgba(20,23,28,.80) 96%,rgba(20,23,28,1) 100%)"></div>
 <div ref="{{ heroCaptionRef }}" style="position:absolute;left:32px;bottom:56px;opacity:0">
 
 </div>
@@ -72,7 +72,7 @@ input,textarea,select,button{font-family:inherit}
 <p style="max-width:620px;font-size:19px;line-height:1.62;color:rgba(242,244,247,.68);margin:0 0 38px;text-wrap:pretty">Jung, motiviert und voller Leidenschaft für das Elektrohandwerk – das ist POTI Elektrotechnik. Wir arbeiten mit viel Engagement, denken mit und legen größten Wert auf eine saubere und sorgfältige Arbeit.</p>
 <div style="display:flex;flex-wrap:wrap;gap:14px">
 <button onClick="{{ openContact }}" style="background:linear-gradient(180deg,rgba(1,149,255,.22),rgba(1,149,255,.10));color:#F2F4F7;border:1px solid rgba(1,149,255,.42);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.02em;padding:18px 38px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 10px 26px rgba(1,149,255,.16);transition:background .25s,border-color .25s,box-shadow .25s" style-hover="background:linear-gradient(180deg,rgba(1,149,255,.48),rgba(1,149,255,.26));border-color:rgba(1,149,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 14px 34px rgba(1,149,255,.32)">Jetzt Anfragen</button>
-<button onClick="{{ goServices }}" style="background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:18px 30px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">UNSERE LEISTUNGEN</button>
+<button onClick="{{ goServices }}" style="background:rgba(255,255,255,.04);color:#F2F4F7;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.02em;padding:18px 34px;cursor:pointer;transition:background .25s,border-color .25s,color .25s" style-hover="background:rgba(1,149,255,.12);border-color:rgba(1,149,255,.5);color:#5FBFFF">Unsere Leistungen</button>
 </div>
 </div>
 <div style="display:grid;gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09)">
@@ -434,8 +434,7 @@ const REFS = [
 ];
 
 const SERVICES = [
-  ["Elektroinstallationen im Neubau", "Komplette Elektroinstallation für Ihr Neubauprojekt", "Wir planen und realisieren die komplette Elektroinstallation für Ihr Neubauprojekt – von der ersten Leitung bis zur Inbetriebnahme. Während der gesamten Bauphase stehen wir Ihnen als persönlicher Ansprechpartner zur Seite und reagieren flexibel auf Änderungswünsche oder neue Anforderungen. Dabei setzen wir auf moderne Technik, höchste Qualitätsstandards und eine zukunftssichere Ausführung."],
-  ["Sanierungen", "Mehr Sicherheit, Komfort und Energieeffizienz im Bestand", "Eine moderne Elektroinstallation sorgt für mehr Sicherheit, Komfort und Energieeffizienz in Ihrem Zuhause. Wir erneuern bestehende Elektroanlagen fachgerecht und passen sie an aktuelle Normen sowie Ihre individuellen Wünsche an."],
+  ["Sanierungen von Alt- und Neubau", "Mehr Sicherheit, Komfort und Energieeffizienz im Bestand", "Wir planen und realisieren die komplette Elektroinstallation für Ihr Neu- oder Altbauprojekt. Während der gesamten Bauphase stehen wir Ihnen als persönlicher Ansprechpartner zur Seite und reagieren flexibel auf Änderungswünsche oder neue Anforderungen. Dabei setzen wir auf moderne Technik, höchste Qualitätsstandards und eine zukunftssichere Ausführung."],
   ["Photovoltaikanlagen", "Alle Leistungen aus einer Hand", "Bei uns erhalten Sie alle Leistungen aus einer Hand – von der persönlichen Beratung und Planung über die fachgerechte Installation bis hin zur Inbetriebnahme Ihrer PV-Anlage. So profitieren Sie von einer reibungslosen Umsetzung und einem Ansprechpartner während des gesamten Projekts."],
   ["Elektroladestationen", "Sicher, effizient und komfortabel laden", "Wir installieren moderne Elektroladestationen für private Haushalte und Gewerbebetriebe. So laden Sie Ihr Elektrofahrzeug sicher, effizient und komfortabel – ganz bequem zu Hause oder am Unternehmensstandort."],
   ["Wärmepumpen", "Fachgerechter Elektroanschluss Ihrer Wärmepumpe", "Wir übernehmen den fachgerechten Elektroanschluss Ihrer Wärmepumpe und sorgen für eine sichere und zuverlässige Inbetriebnahme. Dabei arbeiten wir eng mit Heizungsbauern und anderen Gewerken zusammen, um einen reibungslosen Ablauf zu gewährleisten."],
@@ -479,12 +478,12 @@ class Component extends DCLogic {
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       const progress = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
-      const ease = (t) => t * t * (3 - 2 * t);
-      const phase1 = ease(Math.min(1, progress / 0.55));
-      const phase2 = ease(progress <= 0.55 ? 0 : Math.min(1, (progress - 0.55) / 0.45));
+      const ease = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      const phase1 = ease(Math.min(1, progress / 0.78));
+      const phase2 = ease(progress <= 0.78 ? 0 : Math.min(1, (progress - 0.78) / 0.22));
 
       const pic = this.heroPicRef.current;
-      if (pic) pic.style.transform = "scale(" + (1 + phase1 * 1.3).toFixed(4) + ")";
+      if (pic) pic.style.transform = "scale(" + (1 + phase1 * 2.5).toFixed(4) + ")";
 
       const cap = this.heroCaptionRef.current;
       if (cap) cap.style.opacity = progress > 0.15 ? Math.min(1, (progress - 0.15) / 0.4).toFixed(3) : "0";
@@ -507,9 +506,10 @@ class Component extends DCLogic {
         const anchorX = 35, anchorY = -23;
         const x = startX + (targetX - startX) * phase2 - anchorX;
         const y = startY + (targetY - startY) * phase2 - anchorY;
-        const scale = 1 + ((lRect.width / 90) - 1) * phase2;
-        const opIn = phase1 < 0.4 ? 0 : Math.min(1, (phase1 - 0.4) / 0.6);
-        const opOut = phase2 > 0.7 ? 1 - Math.min(1, (phase2 - 0.7) / 0.3) : 1;
+        const startScale = 2.1;
+        const scale = startScale + ((lRect.width / 90) - startScale) * phase2;
+        const opIn = phase1 < 0.78 ? 0 : Math.min(1, (phase1 - 0.78) / 0.22);
+        const opOut = phase2 > 0.88 ? 1 - Math.min(1, (phase2 - 0.88) / 0.12) : 1;
         fly.style.transform = "translate(-50%,-50%) translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0) scale(" + scale.toFixed(4) + ")";
         fly.style.opacity = (opIn * opOut).toFixed(3);
       } else if (fly) {
@@ -539,35 +539,22 @@ class Component extends DCLogic {
 
   goRef = (dir) => () => {
     const n = REFS.length;
-    this.setState(s => ({ refPrevIndex: s.refIndex, refDir: dir, refIndex: (s.refIndex + dir + n) % n }));
-    clearTimeout(this._refT);
-    this._refT = setTimeout(() => this.setState({ refPrevIndex: null }), 620);
+    this.setState(s => ({ refIndex: (s.refIndex + dir + n) % n }));
   };
 
-  selectRef = (i) => () => {
-    this.setState(s => {
-      if (s.refIndex === i) return null;
-      clearTimeout(this._refT);
-      this._refT = setTimeout(() => this.setState({ refPrevIndex: null }), 620);
-      return { refPrevIndex: s.refIndex, refDir: i > s.refIndex ? 1 : -1, refIndex: i };
-    });
-  };
+  selectRef = (i) => () => this.setState({ refIndex: i });
 
   renderVals() {
     const { page, open, picked, sent, jobSent, heroImgScale, heroCaptionOpacity, floatLeft, floatTop, floatSize, floatOpacity, heroHeaderOpacity, contactOpen, contactStep, hoverTile, vw, refIndex, refPrevIndex, refDir } = this.state;
     const refSlides = REFS.map((r, i) => {
-      const isCur = i === refIndex, isPrev = i === refPrevIndex;
-      let tx = "100%", z = 1, vis = "hidden";
-      if (isCur) { tx = "0%"; z = 3; vis = "visible"; }
-      else if (isPrev) { tx = refDir === 1 ? "-100%" : "100%"; z = 2; vis = "visible"; }
-      else if (refPrevIndex === null && !isCur) { tx = refDir === 1 ? "100%" : "-100%"; }
+      const isCur = i === refIndex;
       return {
         imgId: "ref-img-" + i, label: r[0], caption: r[1],
         fit: r[2] === "portrait" ? "contain" : "cover",
         imgStyle: r[2] === "portrait"
           ? "position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:auto;aspect-ratio:3/4;height:100%"
           : "position:absolute;inset:0;width:100%;height:100%",
-        slideStyle: "position:absolute;inset:0;visibility:" + vis + ";z-index:" + z + ";transform:translateX(" + tx + ");transition:transform .6s cubic-bezier(.22,.8,.2,1),visibility .6s",
+        slideStyle: "position:absolute;inset:0;visibility:" + (isCur ? "visible" : "hidden") + ";z-index:" + (isCur ? 3 : 1),
         select: this.selectRef(i),
         dotStyle: "width:" + (isCur ? 28 : 10) + "px;height:10px;border:0;padding:0;cursor:pointer;background:" + (isCur ? "#0195FF" : "rgba(255,255,255,.24)") + ";transition:width .3s,background .3s"
       };
@@ -609,7 +596,7 @@ class Component extends DCLogic {
       headerH, logoH: mob ? 30 : 52, padX: mob ? 18 : 32,
       headerGap: mob ? 12 : 40, navFs: mob ? 11.5 : 14, navPadX: mob ? 8 : 16,
       heroStickyH: "calc(100vh - " + headerH + "px)",
-      heroTextPadTop: mob ? 36 : 56,
+      heroTextPadTop: mob ? 24 : 32,
       secPad: mob ? 56 : 96, secPadTop: mob ? 64 : 104, secPadBottom: mob ? 64 : 112,
       gapLg: mob ? 36 : 64,
       heroCols: tab ? "1fr" : "1.35fr .95fr",
