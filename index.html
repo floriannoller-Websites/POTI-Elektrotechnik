@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
+﻿<!DOCTYPE html>
+<html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+
+
 </head>
 <body>
 <x-dc>
@@ -21,25 +22,27 @@ a:hover{color:#5FBFFF}
 input,textarea,select,button{font-family:inherit}
 ::selection{background:#0195FF;color:#000}
 @keyframes potiPulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes potiSpin{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
+#poti-carousel:hover #poti-carousel-track{animation-play-state:paused}
 </style>
 </helmet>
 
-<div style="min-height:100vh;background:#14171C;overflow-x:hidden;padding-top:{{ headerH }}px">
+<div ref="{{ rootRef }}" style="min-height:100vh;background:#14171C;overflow-x:hidden;padding-top:{{ headerH }}px">
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(20,23,28,.86);border-bottom:1px solid rgba(255,255,255,.09)">
 <div style="max-width: 1240px; margin: 0 auto; padding: 0 {{ padX }}px; height: {{ headerH }}px; display: flex; align-items: center; gap: {{ headerGap }}px; position: relative">
 
-<img ref="{{ headerLogoRef }}" src="logo-transparent.png" alt="POTI ELEKTROTECHNIK" style="height:{{ logoH }}px;width:auto;cursor:pointer;flex:none;opacity:0;will-change:opacity" onClick="{{ goHome }}"><nav style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px;margin-left:auto">
-<button onClick="{{ goHome }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Start
+<img ref="{{ headerLogoRef }}" src="logo-transparent.png" alt="POTI ELEKTROTECHNIK" style="height:{{ logoH }}px;width:auto;cursor:pointer;flex:none;opacity:0;will-change:opacity" sc-camel-on-click="{{ goHome }}"><nav style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px;margin-left:auto">
+<button sc-camel-on-click="{{ goHome }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Start
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;left:16px;right:16px;bottom:2px;height:2px;background:#0195FF"></span></sc-if>
 </button>
-<button onClick="{{ goServices }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Leistungen
+<button sc-camel-on-click="{{ goServices }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Leistungen
 <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:16px;right:16px;bottom:2px;height:2px;background:#0195FF"></span></sc-if>
 </button>
-<button onClick="{{ goJobs }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Karriere
+<button sc-camel-on-click="{{ goJobs }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Karriere
 <sc-if value="{{ isJobs }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:16px;right:16px;bottom:2px;height:2px;background:#0195FF"></span></sc-if>
 </button>
-<button onClick="{{ goAbout }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Über uns
+<button sc-camel-on-click="{{ goAbout }}" style="position:relative;background:none;border:0;color:#F2F4F7;font-size:{{ navFs }}px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px {{ navPadX }}px;cursor:pointer;opacity:.72" style-hover="opacity:1">Über uns
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:16px;right:16px;bottom:2px;height:2px;background:#0195FF"></span></sc-if>
 </button>
 </nav>
@@ -71,8 +74,8 @@ input,textarea,select,button{font-family:inherit}
 <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(52px,6.6vw,104px);line-height:.92;letter-spacing:-.01em;text-transform:uppercase;margin:0 0 28px;text-wrap:balance">Mit leidenschaft<br><span style="color: rgb(1, 149, 255);">Unter Strom.</span></h1>
 <p style="max-width:620px;font-size:19px;line-height:1.62;color:rgba(242,244,247,.68);margin:0 0 38px;text-wrap:pretty">Jung, motiviert und voller Leidenschaft für das Elektrohandwerk – das ist POTI Elektrotechnik. Wir arbeiten mit viel Engagement, denken mit und legen größten Wert auf eine saubere und sorgfältige Arbeit.</p>
 <div style="display:flex;flex-wrap:wrap;gap:14px">
-<button onClick="{{ openContact }}" style="background:linear-gradient(180deg,rgba(1,149,255,.22),rgba(1,149,255,.10));color:#F2F4F7;border:1px solid rgba(1,149,255,.42);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.02em;padding:18px 38px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 10px 26px rgba(1,149,255,.16);transition:background .25s,border-color .25s,box-shadow .25s" style-hover="background:linear-gradient(180deg,rgba(1,149,255,.48),rgba(1,149,255,.26));border-color:rgba(1,149,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 14px 34px rgba(1,149,255,.32)">Jetzt Anfragen</button>
-<button onClick="{{ goServices }}" style="background:rgba(255,255,255,.04);color:#F2F4F7;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.02em;padding:18px 34px;cursor:pointer;transition:background .25s,border-color .25s,color .25s" style-hover="background:rgba(1,149,255,.12);border-color:rgba(1,149,255,.5);color:#5FBFFF">Unsere Leistungen</button>
+<button sc-camel-on-click="{{ openContact }}" style="background:linear-gradient(180deg,rgba(1,149,255,.22),rgba(1,149,255,.10));color:#F2F4F7;border:1px solid rgba(1,149,255,.42);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.02em;padding:18px 38px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 10px 26px rgba(1,149,255,.16);transition:background .25s,border-color .25s,box-shadow .25s" style-hover="background:linear-gradient(180deg,rgba(1,149,255,.48),rgba(1,149,255,.26));border-color:rgba(1,149,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 14px 34px rgba(1,149,255,.32)">Jetzt Anfragen</button>
+<button sc-camel-on-click="{{ goServices }}" style="background:rgba(255,255,255,.04);color:#F2F4F7;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.02em;padding:18px 34px;cursor:pointer;transition:background .25s,border-color .25s,color .25s" style-hover="background:rgba(1,149,255,.12);border-color:rgba(1,149,255,.5);color:#5FBFFF">Unsere Leistungen</button>
 </div>
 </div>
 <div style="display:grid;gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09)">
@@ -99,18 +102,18 @@ input,textarea,select,button{font-family:inherit}
 
 <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(36px,4vw,58px);line-height:1;text-transform:uppercase;margin:0">Vom Rohbau bis zur Wallbox</h2>
 </div>
-<button onClick="{{ goServices }}" style="background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:15px 24px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Details ansehen</button>
+<button sc-camel-on-click="{{ goServices }}" style="background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:15px 24px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Details ansehen</button>
 </div>
 <div style="display:grid;grid-template-columns:{{ tileCols }};gap:18px">
 <sc-for list="{{ services }}" as="s" hint-placeholder-count="12">
 <div style="{{ s.slotStyle }}">
-<div onMouseEnter="{{ s.hoverOn }}" onMouseLeave="{{ s.hoverOff }}" style="{{ s.tileStyle }}">
+<div sc-camel-on-mouse-enter="{{ s.hoverOn }}" sc-camel-on-mouse-leave="{{ s.hoverOff }}" style="{{ s.tileStyle }}">
 <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(1,149,255,.75);margin-bottom:16px">{{ s.num }}</div>
 <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;line-height:1.12;text-transform:uppercase;margin:0">{{ s.title }}</h3>
 <div style="{{ s.imgWrapStyle }}">
 <image-slot id="{{ s.imgId }}" shape="rect" style="width:100%;height:112px" placeholder="Bild"></image-slot>
 </div>
-<button onClick="{{ s.goDetail }}" style="{{ s.btnStyle }}">Mehr Details</button>
+<button sc-camel-on-click="{{ s.goDetail }}" style="{{ s.btnStyle }}">Mehr Details</button>
 </div>
 </div>
 </sc-for>
@@ -120,27 +123,31 @@ input,textarea,select,button{font-family:inherit}
 
 <section style="padding:{{ secPad }}px {{ padX }}px;border-bottom:1px solid rgba(255,255,255,.09)">
 <div style="max-width:1240px;margin:0 auto">
-<div style="max-width:760px;margin:0 auto 48px;text-align:center">
 
-<h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,54px);line-height:1.02;text-transform:uppercase;margin:0 0 20px">Projekte aus der Region</h2>
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:36px">
+<div>
+
+<h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,54px);line-height:1.02;text-transform:uppercase;margin:0">Projekte aus der Region</h2>
+</div>
 
 </div>
-<div style="max-width:1000px;margin:0 auto">
-<div style="position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.14);aspect-ratio:16/9;background:#1B1F25">
-<sc-for list="{{ refSlides }}" as="r" hint-placeholder-count="4">
-<div style="{{ r.slideStyle }}">
-<image-slot id="{{ r.imgId }}" shape="rect" fit="{{ r.fit }}" style="{{ r.imgStyle }}" placeholder="{{ r.label }}"></image-slot>
+
+<div id="poti-carousel" style="{{ stageStyle }}">
+<div id="poti-carousel-track" style="{{ trackStyle }}">
+<sc-for list="{{ refSlides }}" as="r" hint-placeholder-count="8">
+<figure style="{{ r.cardStyle }}">
+<div style="position:absolute;inset:0;overflow:hidden;background:#1B1F25;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 60px rgba(0,0,0,.55)">
+<image-slot id="{{ r.imgId }}" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%" placeholder="{{ r.label }}"></image-slot>
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,11,14,.88) 0%,rgba(9,11,14,.25) 42%,rgba(9,11,14,.05) 70%);pointer-events:none"></div>
+<figcaption style="position:absolute;left:0;right:0;bottom:0;padding:22px 22px 26px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;line-height:1.18;text-transform:uppercase;color:#F2F4F7;text-wrap:pretty">{{ r.label }}</figcaption>
 </div>
-</sc-for>
-<button onClick="{{ refPrev }}" aria-label="Vorheriges Bild" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:4;width:46px;height:46px;border:1px solid rgba(255,255,255,.28);background:rgba(20,23,28,.6);backdrop-filter:blur(6px);color:#F2F4F7;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center" style-hover="border-color:#0195FF;color:#0195FF">‹</button>
-<button onClick="{{ refNext }}" aria-label="Nächstes Bild" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);z-index:4;width:46px;height:46px;border:1px solid rgba(255,255,255,.28);background:rgba(20,23,28,.6);backdrop-filter:blur(6px);color:#F2F4F7;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center" style-hover="border-color:#0195FF;color:#0195FF">›</button>
-</div>
-<div style="display:flex;gap:8px;margin-top:16px;justify-content:center">
-<sc-for list="{{ refSlides }}" as="r" hint-placeholder-count="4">
-<button onClick="{{ r.select }}" aria-label="Bild anzeigen" style="{{ r.dotStyle }}"></button>
+</figure>
 </sc-for>
 </div>
 </div>
+
+
+
 </div>
 </section>
 
@@ -284,11 +291,11 @@ input,textarea,select,button{font-family:inherit}
 <span style="width:44px;height:44px;border:2px solid #0195FF;transform:rotate(45deg)"></span>
 <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:32px;text-transform:uppercase;margin:14px 0 0">Danke für deine Bewerbung</h3>
 <p style="font-size:16.5px;line-height:1.6;color:rgba(242,244,247,.62);margin:0;max-width:380px">Wir haben deine Unterlagen erhalten und melden uns in Kürze bei dir.</p>
-<button onClick="{{ jobReset }}" style="margin-top:12px;background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Neue Bewerbung</button>
+<button sc-camel-on-click="{{ jobReset }}" style="margin-top:12px;background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Neue Bewerbung</button>
 </div>
 </sc-if>
 <sc-if value="{{ jobNotSent }}" hint-placeholder-val="{{ true }}">
-<form onSubmit="{{ jobSubmit }}">
+<form sc-camel-on-submit="{{ jobSubmit }}">
 <div style="display:grid;grid-template-columns:{{ twoCols }};gap:18px;margin-bottom:18px">
 <label style="display:block"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Vorname *</span><input required="{{ true }}" name="vorname" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font-size:16px;padding:13px 14px;outline:none" style-focus="border-color:#0195FF"></label>
 <label style="display:block"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Nachname *</span><input required="{{ true }}" name="nachname" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font-size:16px;padding:13px 14px;outline:none" style-focus="border-color:#0195FF"></label>
@@ -297,7 +304,7 @@ input,textarea,select,button{font-family:inherit}
 <label style="display:block"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Telefon</span><input name="telefon" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font-size:16px;padding:13px 14px;outline:none" style-focus="border-color:#0195FF"></label>
 </div>
 <label style="display:block;margin-bottom:20px"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Nachricht</span><textarea name="nachricht" rows="5" placeholder="Kurz zu dir, deiner Erfahrung und wann du starten könntest" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font-size:16px;line-height:1.55;padding:13px 14px;outline:none;resize:vertical" style-focus="border-color:#0195FF"></textarea></label>
-<label style="display:block;margin-bottom:20px"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Lebenslauf / Unterlagen</span><input type="file" name="unterlagen" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:rgba(242,244,247,.7);font-size:14.5px;padding:12px 14px;outline:none"><div style="font-size:12.5px;color:rgba(242,244,247,.5);margin-top:6px">Hinweis: Nach dem Absenden öffnet sich dein E-Mail-Programm – bitte hänge deine Unterlagen dort manuell an, bevor du die Mail abschickst.</div></label>
+<label style="display:block;margin-bottom:20px"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Lebenslauf / Unterlagen</span><input type="file" name="unterlagen" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:rgba(242,244,247,.7);font-size:14.5px;padding:12px 14px;outline:none"></label>
 <label style="display:flex;gap:12px;align-items:flex-start;margin-bottom:26px;cursor:pointer">
 <input required="{{ true }}" type="checkbox" style="margin-top:4px;width:17px;height:17px;accent-color:#0195FF;flex:none">
 <span style="font-size:14.5px;line-height:1.5;color:rgba(242,244,247,.62)">Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und akzeptiere sie. *</span>
@@ -335,15 +342,15 @@ input,textarea,select,button{font-family:inherit}
 </div>
 </footer>
 
-<button onClick="{{ openContact }}" style="position:fixed;right:{{ ctaOffset }}px;bottom:{{ ctaOffset }}px;z-index:70;background:linear-gradient(180deg,rgba(1,149,255,.28),rgba(1,149,255,.14));color:#F2F4F7;border:1px solid rgba(1,149,255,.45);border-radius:999px;font-size:{{ ctaFs }}px;font-weight:600;letter-spacing:.02em;padding:{{ ctaPad }};cursor:pointer;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 12px 30px rgba(1,149,255,.22);display:flex;align-items:center;gap:10px;transition:background .25s,border-color .25s,box-shadow .25s" style-hover="background:linear-gradient(180deg,rgba(1,149,255,.55),rgba(1,149,255,.3));border-color:rgba(1,149,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 16px 38px rgba(1,149,255,.38)">
+<button sc-camel-on-click="{{ openContact }}" style="position:fixed;right:{{ ctaOffset }}px;bottom:{{ ctaOffset }}px;z-index:70;background:linear-gradient(180deg,rgba(1,149,255,.28),rgba(1,149,255,.14));color:#F2F4F7;border:1px solid rgba(1,149,255,.45);border-radius:999px;font-size:{{ ctaFs }}px;font-weight:600;letter-spacing:.02em;padding:{{ ctaPad }};cursor:pointer;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 12px 30px rgba(1,149,255,.22);display:flex;align-items:center;gap:10px;transition:background .25s,border-color .25s,box-shadow .25s" style-hover="background:linear-gradient(180deg,rgba(1,149,255,.55),rgba(1,149,255,.3));border-color:rgba(1,149,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 16px 38px rgba(1,149,255,.38)">
 <span style="width:8px;height:8px;background:#0195FF;border-radius:50%;flex:none;box-shadow:0 0 10px rgba(1,149,255,.9)"></span>
 Jetzt Anfragen
 </button>
 
 <sc-if value="{{ contactOpen }}" hint-placeholder-val="{{ false }}">
-<div style="position:fixed;inset:0;z-index:90;background:rgba(12,14,17,.72);backdrop-filter:blur(4px);display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto" onClick="{{ closeContact }}">
-<div style="{{ modalStyle }}" onClick="{{ stop }}">
-<button onClick="{{ closeContact }}" style="position:absolute;top:16px;right:16px;background:none;border:0;color:rgba(242,244,247,.5);font-size:22px;line-height:1;cursor:pointer;padding:6px;z-index:2" style-hover="color:#fff">×</button>
+<div style="position:fixed;inset:0;z-index:90;background:rgba(12,14,17,.72);backdrop-filter:blur(4px);display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto" sc-camel-on-click="{{ closeContact }}">
+<div style="{{ modalStyle }}" sc-camel-on-click="{{ stop }}">
+<button sc-camel-on-click="{{ closeContact }}" style="position:absolute;top:16px;right:16px;background:none;border:0;color:rgba(242,244,247,.5);font-size:22px;line-height:1;cursor:pointer;padding:6px;z-index:2" style-hover="color:#fff">×</button>
 
 <sc-if value="{{ contactChoice }}" hint-placeholder-val="{{ true }}">
 <div>
@@ -357,7 +364,7 @@ Jetzt Anfragen
 <span style="display:block;font-size:14px;color:rgba(242,244,247,.55);margin-top:2px">015224835942</span>
 </span>
 </a>
-<button onClick="{{ showForm }}" style="display:flex;align-items:center;gap:16px;background:#20252C;border:1px solid rgba(255,255,255,.14);padding:20px 22px;color:#F2F4F7;text-align:left;cursor:pointer;width:100%" style-hover="border-color:#0195FF">
+<button sc-camel-on-click="{{ showForm }}" style="display:flex;align-items:center;gap:16px;background:#20252C;border:1px solid rgba(255,255,255,.14);padding:20px 22px;color:#F2F4F7;text-align:left;cursor:pointer;width:100%" style-hover="border-color:#0195FF">
 <span style="width:40px;height:40px;border:1px solid rgba(1,149,255,.5);border-radius:50%;display:grid;place-items:center;flex:none;font-size:16px;color:#0195FF">✉</span>
 <span>
 <span style="display:block;font-weight:600;font-size:17px">E-Mail schreiben</span>
@@ -372,7 +379,7 @@ Jetzt Anfragen
 <div>
 <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#0195FF;margin-bottom:12px">Anfrage per E-Mail</div>
 <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:32px;text-transform:uppercase;margin:0 0 24px;line-height:1.05">Deine Anfrage</h3>
-<form onSubmit="{{ submit }}">
+<form sc-camel-on-submit="{{ submit }}">
 <div style="display:grid;grid-template-columns:{{ twoCols }};gap:16px;margin-bottom:16px">
 <label style="display:block"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Vorname *</span><input required="{{ true }}" name="vorname" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font-size:16px;padding:13px 14px;outline:none" style-focus="border-color:#0195FF"></label>
 <label style="display:block"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:8px">Nachname *</span><input required="{{ true }}" name="nachname" style="width:100%;background:#20252C;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font-size:16px;padding:13px 14px;outline:none" style-focus="border-color:#0195FF"></label>
@@ -384,9 +391,9 @@ Jetzt Anfragen
 <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,244,247,.5);margin-bottom:12px">Benötigte Leistungen *</span>
 <div style="display:flex;flex-wrap:wrap;gap:8px">
 <sc-for list="{{ services }}" as="s" hint-placeholder-count="12">
-<button type="button" onClick="{{ s.pick }}" style="{{ s.chipStyle }}">{{ s.title }}</button>
+<button type="button" sc-camel-on-click="{{ s.pick }}" style="{{ s.chipStyle }}">{{ s.title }}</button>
 </sc-for>
-<button type="button" onClick="{{ pickOther }}" style="{{ otherChipStyle }}">Sonstiges</button>
+<button type="button" sc-camel-on-click="{{ pickOther }}" style="{{ otherChipStyle }}">Sonstiges</button>
 </div>
 <sc-if value="{{ showPickError }}" hint-placeholder-val="{{ false }}">
 <div style="font-size:13.5px;color:#FF6B6B;margin-top:10px">Bitte wähle mindestens eine Leistung aus.</div>
@@ -399,7 +406,7 @@ Jetzt Anfragen
 </label>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
 <button type="submit" style="flex:1;min-width:200px;min-height:48px;background:#0195FF;color:#000;border:0;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px 24px;cursor:pointer;clip-path:polygon(0 0,100% 0,100% 100%,14px 100%)" style-hover="background:#3FAEFF">Anfrage senden</button>
-<button type="button" onClick="{{ backToChoice }}" style="min-height:48px;background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px 20px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Zurück</button>
+<button type="button" sc-camel-on-click="{{ backToChoice }}" style="min-height:48px;background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px 20px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Zurück</button>
 </div>
 </form>
 </div>
@@ -410,7 +417,7 @@ Jetzt Anfragen
 <span style="width:44px;height:44px;border:2px solid #0195FF;transform:rotate(45deg)"></span>
 <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:32px;text-transform:uppercase;margin:14px 0 0">Anfrage unterwegs</h3>
 <p style="font-size:16.5px;line-height:1.6;color:rgba(242,244,247,.62);margin:0;max-width:400px">Dein E-Mail-Programm hat sich mit der fertigen Anfrage geöffnet – bitte einmal auf Senden tippen. Wir melden uns zeitnah bei dir.</p>
-<button onClick="{{ closeContact }}" style="margin-top:12px;background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Schließen</button>
+<button sc-camel-on-click="{{ closeContact }}" style="margin-top:12px;background:none;border:1px solid rgba(255,255,255,.22);color:#F2F4F7;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;cursor:pointer" style-hover="border-color:#0195FF;color:#0195FF">Schließen</button>
 </div>
 </sc-if>
 
@@ -421,16 +428,18 @@ Jetzt Anfragen
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;serviceLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;accordion&quot;,&quot;grid&quot;],&quot;default&quot;:&quot;accordion&quot;,&quot;tsType&quot;:&quot;'accordion' | 'grid'&quot;,&quot;section&quot;:&quot;Leistungen&quot;},&quot;showCertificates&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Startseite&quot;}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;serviceLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;accordion&quot;,&quot;grid&quot;],&quot;default&quot;:&quot;accordion&quot;,&quot;tsType&quot;:&quot;'accordion' | 'grid'&quot;,&quot;section&quot;:&quot;Leistungen&quot;},&quot;showCertificates&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Startseite&quot;}}">
+// [Slot-Kennung, Titel, Untertext, Spalten-Span, Seitenverhältnis]
+// Reihen mit gleichem Seitenverhältnis, damit die Bildunterschriften auf einer Linie sitzen.
 const REFS = [
-  ["Neubau", "Verteilung / Rohinstallation"],
-  ["PV-Anlage", "Dachmontage / Wechselrichter"],
-  ["Wallbox", "Ladepunkt Einfamilienhaus", "portrait"],
-  ["Smart Home", "KNX-Taster / Visualisierung"],
-  ["Zählerschrank", "Neuer Zählerplatz nach aktueller Norm"],
-  ["Beleuchtung", "Lichtplanung Innen & Außen"],
-  ["Wärmepumpe", "Elektroanschluss & Inbetriebnahme"],
-  ["Altbau", "Sanierung der Bestandsinstallation"]
+  ["ref-img-0", "Photovoltaik", 6, "4/3"],
+  ["ref-img-1", "Photovoltaik", 6, "4/3"],
+  ["ref-img-2", "Wallbox", 4, "3/4"],
+  ["ref-img-3", "Beleuchtung", 4, "3/4"],
+  ["ref-img-4", "Zählerschrank", 4, "3/4"],
+  ["ref-img-5", "Außeninstallation", 6, "4/3"],
+  ["ref-img-6", "Rohinstallation", 6, "4/3"],
+  ["ref-img-7", "Altbausanierung", 12, "21/9"]
 ];
 
 const SERVICES = [
@@ -448,6 +457,7 @@ const SERVICES = [
 
 class Component extends DCLogic {
   state = { page: "home", open: null, picked: [], sent: false, jobSent: false, heroImgScale: 1, heroCaptionOpacity: 0, floatLeft: 0, floatTop: 0, floatSize: 90, floatOpacity: 0, heroHeaderOpacity: 0, contactOpen: false, contactStep: "choice", pickError: false, otherPicked: false, hoverTile: null, refIndex: 0, refPrevIndex: null, refDir: 1, vw: typeof window !== "undefined" ? window.innerWidth : 1440 };
+  rootRef = React.createRef();
   heroImgRef = React.createRef();
   heroPicRef = React.createRef();
   floatLogoRef = React.createRef();
@@ -524,8 +534,14 @@ class Component extends DCLogic {
     window.addEventListener("scroll", this._onScroll, { passive: true });
     this._onScroll();
 
-    this._onResize = () => this.setState({ vw: window.innerWidth });
-    window.addEventListener("resize", this._onResize);
+    this._mqDesktop = window.matchMedia("(min-width: 760px)");
+    this._mqWide = window.matchMedia("(min-width: 1040px)");
+    this._applyMq = () => this.forceUpdate();
+    this._mqDesktop.addEventListener("change", this._applyMq);
+    this._mqWide.addEventListener("change", this._applyMq);
+    window.addEventListener("resize", this._applyMq);
+    requestAnimationFrame(() => requestAnimationFrame(this._applyMq));
+    setTimeout(this._applyMq, 300);
   }
 
   componentDidUpdate() {
@@ -534,7 +550,9 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this._onScroll);
-    window.removeEventListener("resize", this._onResize);
+    if (this._mqDesktop) this._mqDesktop.removeEventListener("change", this._applyMq);
+    if (this._mqWide) this._mqWide.removeEventListener("change", this._applyMq);
+    window.removeEventListener("resize", this._applyMq);
   }
 
   goRef = (dir) => () => {
@@ -546,21 +564,23 @@ class Component extends DCLogic {
 
   renderVals() {
     const { page, open, picked, sent, jobSent, heroImgScale, heroCaptionOpacity, floatLeft, floatTop, floatSize, floatOpacity, heroHeaderOpacity, contactOpen, contactStep, hoverTile, vw, refIndex, refPrevIndex, refDir } = this.state;
+    const mq = (q) => typeof window !== "undefined" && window.matchMedia ? window.matchMedia(q).matches : true;
+    const mob = !mq("(min-width: 760px)");
+    const tab = !mq("(min-width: 1040px)");
+    const headerH = mob ? 76 : 132;
+    const cardW = mob ? 210 : (tab ? 280 : 340);
+    const cardH = Math.round(cardW * 4 / 3);
+    const step = 360 / REFS.length;
+    const radius = Math.round((cardW / 2) / Math.tan(Math.PI / REFS.length)) + (mob ? 26 : 60);
     const refSlides = REFS.map((r, i) => {
-      const isCur = i === refIndex;
       return {
-        imgId: "ref-img-" + i, label: r[0], caption: r[1],
-        fit: r[2] === "portrait" ? "contain" : "cover",
-        imgStyle: r[2] === "portrait"
-          ? "position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:auto;aspect-ratio:3/4;height:100%"
-          : "position:absolute;inset:0;width:100%;height:100%",
-        slideStyle: "position:absolute;inset:0;visibility:" + (isCur ? "visible" : "hidden") + ";z-index:" + (isCur ? 3 : 1),
-        select: this.selectRef(i),
-        dotStyle: "width:" + (isCur ? 28 : 10) + "px;height:10px;border:0;padding:0;cursor:pointer;background:" + (isCur ? "#0195FF" : "rgba(255,255,255,.24)") + ";transition:width .3s,background .3s"
+        num: String(i + 1).padStart(2, "0"),
+        cardStyle: "position:absolute;margin:0;left:50%;top:50%;width:" + cardW + "px;height:" + cardH + "px;margin-left:" + (-cardW / 2) + "px;margin-top:" + (-cardH / 2) + "px;transform:rotateY(" + (i * step) + "deg) translateZ(" + radius + "px)",
+        imgId: r[0], label: r[1],
       };
     });
-    const mob = vw < 760, tab = vw < 1040;
-    const headerH = mob ? 76 : 132;
+    const stageStyle = "position:relative;height:" + (cardH + (mob ? 60 : 110)) + "px;perspective:" + (mob ? 1000 : 1600) + "px;overflow:hidden";
+    const trackStyle = "position:absolute;inset:0;transform-style:preserve-3d;animation:potiSpin " + (mob ? 34 : 44) + "s linear infinite";
     const isHomePage = page === "home";
     const headerLogoOpacity = isHomePage ? heroHeaderOpacity : 1;
     const layout = this.props.serviceLayout ?? "accordion";
@@ -591,8 +611,7 @@ class Component extends DCLogic {
       };
     });
     return {
-      services, refSlides,
-      refNext: this.goRef(1), refPrev: this.goRef(-1),
+      services, refSlides, stageStyle, trackStyle,
       headerH, logoH: mob ? 30 : 52, padX: mob ? 18 : 32,
       headerGap: mob ? 12 : 40, navFs: mob ? 11.5 : 14, navPadX: mob ? 8 : 16,
       heroStickyH: "calc(100vh - " + headerH + "px)",
@@ -612,6 +631,7 @@ class Component extends DCLogic {
       cardPad: mob ? "28px 22px 30px" : "40px 38px 42px",
       headerCtaStyle: "flex:none;display:inline-flex;align-items:center;white-space:nowrap;background:#0195FF;color:#000;border:0;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;clip-path:polygon(0 0,100% 0,100% 100%,10px 100%);font-size:" + (mob ? 11 : 13.5) + "px;padding:" + (mob ? "10px 12px" : "14px 22px"),
       ctaOffset: mob ? 16 : 28, ctaFs: mob ? 13.5 : 15, ctaPad: mob ? "15px 24px" : "18px 34px",
+      rootRef: this.rootRef,
       heroImgRef: this.heroImgRef, heroStickyRef: this.heroStickyRef, headerLogoRef: this.headerLogoRef,
       heroPicRef: this.heroPicRef, floatLogoRef: this.floatLogoRef, heroCaptionRef: this.heroCaptionRef,
       isHome: page === "home", isServices: page === "services", isAbout: page === "about", isJobs: page === "jobs",
@@ -644,8 +664,24 @@ class Component extends DCLogic {
       },
       reset: () => this.setState({ sent: false, picked: [] }),
       jobSent, jobNotSent: !jobSent,
-      jobSubmit: (e) => {   e.preventDefault();   const f = e.target;   const g = (n) => (f.elements[n] && f.elements[n].value ? f.elements[n].value : "—");   const body = [     "Neue Bewerbung über die Website", "",     "Name: " + g("vorname") + " " + g("nachname"),     "Position: " + g("position"),     "E-Mail: " + g("email"),     "Telefon: " + g("telefon"), "",     "Nachricht:", g("nachricht"), "",     "Hinweis: Bewerbungsunterlagen bitte dieser E-Mail manuell als Anhang hinzufügen."   ].join("
-");   window.location.href = "mailto:info@poti-elektrotechnik.de"     + "?subject=" + encodeURIComponent("Bewerbung von " + g("vorname") + " " + g("nachname") + " – " + g("position"))     + "&body=" + encodeURIComponent(body);   this.setState({ jobSent: true }); },
+      jobSubmit: (e) => {
+        e.preventDefault();
+        const f = e.target;
+        const g = (n) => (f.elements[n] && f.elements[n].value ? f.elements[n].value : "\u2014");
+        const body = [
+          "Neue Bewerbung ueber die Website", "",
+          "Name: " + g("vorname") + " " + g("nachname"),
+          "Position: " + g("position"),
+          "E-Mail: " + g("email"),
+          "Telefon: " + g("telefon"), "",
+          "Nachricht:", g("nachricht"), "",
+          "Hinweis: Bewerbungsunterlagen bitte dieser E-Mail manuell als Anhang hinzufuegen."
+        ].join("\n");
+        window.location.href = "mailto:info@poti-elektrotechnik.de"
+          + "?subject=" + encodeURIComponent("Bewerbung von " + g("vorname") + " " + g("nachname") + " " + String.fromCharCode(8211) + " " + g("position"))
+          + "&body=" + encodeURIComponent(body);
+        this.setState({ jobSent: true });
+      },
       jobReset: () => this.setState({ jobSent: false }),
       contactOpen,
       showPickError: this.state.pickError && !picked.length && !this.state.otherPicked,
@@ -664,5 +700,6 @@ class Component extends DCLogic {
 }
 
 </script>
-</body>
-</html>
+
+
+</body></html>
