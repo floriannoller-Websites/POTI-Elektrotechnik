@@ -158,7 +158,7 @@ input,textarea,select,button{font-family:inherit}
 <sc-for list="{{ refSlides }}" as="r" hint-placeholder-count="8">
 <figure style="{{ r.cardStyle }}">
 <div style="position:absolute;inset:0;overflow:hidden;background:#1B1F25;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 60px rgba(0,0,0,.55)">
-<image-slot id="{{ r.imgId }}" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%" placeholder="{{ r.label }}"></image-slot>
+<image-slot id="{{ r.imgId }}" src="{{ r.src }}" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%" placeholder="{{ r.label }}"></image-slot>
 <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,11,14,.88) 0%,rgba(9,11,14,.25) 42%,rgba(9,11,14,.05) 70%);pointer-events:none"></div>
 <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:22px 22px 26px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;line-height:1.18;text-transform:uppercase;color:#F2F4F7;text-wrap:pretty">{{ r.label }}</figcaption>
 </div>
@@ -171,7 +171,7 @@ input,textarea,select,button{font-family:inherit}
 <div style="display:flex;gap:14px;overflow-x:auto;margin:0 -18px;padding:4px 18px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
 <sc-for list="{{ refSlides }}" as="r" hint-placeholder-count="8">
 <figure style="position:relative;flex:none;width:74vw;max-width:300px;aspect-ratio:4/3;margin:0;scroll-snap-align:center;background:#1B1F25;border:1px solid rgba(255,255,255,.14);overflow:hidden">
-<image-slot id="{{ r.imgId }}" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%" placeholder="{{ r.label }}"></image-slot>
+<image-slot id="{{ r.imgId }}" src="{{ r.src }}" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%" placeholder="{{ r.label }}"></image-slot>
 <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,11,14,.88) 0%,rgba(9,11,14,.25) 42%,rgba(9,11,14,.05) 70%);pointer-events:none"></div>
 <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:16px 16px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;line-height:1.18;text-transform:uppercase;color:#F2F4F7;text-wrap:pretty">{{ r.label }}</figcaption>
 </figure>
@@ -191,10 +191,13 @@ input,textarea,select,button{font-family:inherit}
 <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
 <div>
 <section style="position:relative;padding:{{ secPad }}px {{ padX }}px 72px;border-bottom:1px solid rgba(255,255,255,.09);overflow:hidden">
-<div style="position:absolute;top:-200px;left:-120px;width:560px;height:700px;background:linear-gradient(160deg,rgba(1,149,255,.16),rgba(1,149,255,0) 60%);transform:skewX(12deg);pointer-events:none"></div>
+<div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+<img src="./van-services.jpg" alt="POTI Elektrotechnik Mitarbeiter am Firmenfahrzeug" style="width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,23,28,.74) 0%,rgba(20,23,28,.84) 60%,rgba(20,23,28,.96) 100%)"></div>
+</div>
 <div style="position:relative;max-width:1240px;margin:0 auto">
 
-<h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(46px,5.6vw,86px);line-height:.95;text-transform:uppercase;margin:0 0 24px;max-width:900px">viele Leistungen.<br>Ein Ansprechpartner.</h1>
+<h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(46px,5.6vw,86px);line-height:.95;text-transform:uppercase;margin:0 0 24px;max-width:900px">viele Leistungen,<br><span style="color: rgb(1, 149, 255);">Ein Ansprechpartner.</span></h1>
 <p style="max-width:660px;font-size:19px;line-height:1.62;color:rgba(242,244,247,.68);margin:0">Von der kompletten Elektroinstallation im Neubau über Photovoltaik und Wärmepumpe bis zur regelmäßigen Wartung – planen, installieren und betreuen wir Ihre Anlage aus einer Hand.</p>
 </div>
 </section>
@@ -238,13 +241,13 @@ input,textarea,select,button{font-family:inherit}
 <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ heroCols }};gap:{{ gapLg }}px;align-items:center">
 <div>
 
-<h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(46px,5.4vw,84px);line-height:.95;text-transform:uppercase;margin:0 0 26px">Wir sind POTI<br>Elektrotechnik.</h1>
+<h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(46px,5.4vw,84px);line-height:.95;text-transform:uppercase;margin:0 0 26px"><span style="color:#0195FF">Wir sind POTI</span><br>Elektrotechnik.</h1>
 <div style="max-width:640px;font-size:19.5px;line-height:1.62;color:rgba(242,244,247,.72);margin:0 0 20px;text-wrap:pretty"><p class="isSelectedEnd">Jung, motiviert und mit Leidenschaft für gutes Handwerk – das ist POTI Elektrotechnik.<br><br>Wir planen und realisieren Elektroinstallationen mit einem klaren Anspruch: <strong>saubere Arbeit, ehrliche Beratung und Lösungen, die zu unseren Kunden passen.</strong> Dabei denken wir mit, erklären verständlich und legen Wert darauf, dass am Ende nicht nur alles funktioniert, sondern auch ordentlich ausgeführt ist.</p><p>Ob Neubau, Sanierung oder moderne Gebäudetechnik – wir begleiten Sie vom ersten Gespräch bis zur fertigen Anlage.</p></div>
 
 </div>
-<div style="border:1px solid rgba(255,255,255,.12);background:repeating-linear-gradient(135deg,#1D2128 0 12px,#22272E 12px 24px);aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center">
-<span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;color:rgba(1,149,255,.9)">[ PORTRAITFOTO ]</span>
-<span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.6;color:rgba(242,244,247,.42);max-width:250px">Marcel Potocnik, Geschäftsführer — Hochformat 4:5</span>
+<div style="position:relative;border:1px solid rgba(255,255,255,.12);background:#1B1F25;aspect-ratio:4/5;overflow:hidden">
+<img src="./duo-poti.jpg" alt="Das Team von POTI Elektrotechnik" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block">
+<div style="position:absolute;left:0;right:0;bottom:0;padding:34px 20px 16px;background:linear-gradient(to top,rgba(9,11,14,.8),rgba(9,11,14,0));font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#0195FF;text-wrap:pretty">Geschäftsführer: Marcel Potocnik und Lisa Noller</div>
 </div>
 </div>
 </section>
@@ -254,7 +257,11 @@ input,textarea,select,button{font-family:inherit}
 <section style="padding:{{ secPad }}px {{ padX }}px;border-bottom:1px solid rgba(255,255,255,.09)">
 <div style="max-width:1240px;margin:0 auto">
 <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,54px);line-height:1;text-transform:uppercase;margin:0 0 44px">Wofür wir stehen</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09)">
+<div style="position:relative;border:1px solid rgba(255,255,255,.09);border-bottom:0;overflow:hidden;aspect-ratio:21/9;background:#1B1F25">
+<img src="./team-poti.jpg" alt="Das Team von POTI Elektrotechnik" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(27,31,37,0) 48%,rgba(27,31,37,.6) 82%,#1B1F25 100%)"></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09);border-top:0">
 <div style="background:#1B1F25;padding:36px 30px 40px">
 <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(1,149,255,.75);margin-bottom:24px">01</div>
 <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:27px;text-transform:uppercase;margin:0 0 12px">Ehrliche Beratung</h3>
@@ -289,8 +296,12 @@ input,textarea,select,button{font-family:inherit}
 
 <sc-if value="{{ isJobs }}" hint-placeholder-val="{{ false }}">
 <div>
-<section style="position:relative;padding:{{ secPad }}px {{ padX }}px 72px;border-bottom:1px solid rgba(255,255,255,.09);overflow:hidden">
-<div style="position:absolute;top:-200px;right:-120px;width:560px;height:700px;background:linear-gradient(200deg,rgba(1,149,255,.16),rgba(1,149,255,0) 60%);transform:skewX(-12deg);pointer-events:none"></div>
+<div style="position:relative">
+<div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+<img src="./van-poti.jpg" alt="POTI Elektrotechnik Firmenfahrzeug" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,23,28,.6) 0%,rgba(20,23,28,.78) 26%,rgba(20,23,28,.9) 60%,rgba(20,23,28,.95) 100%)"></div>
+</div>
+<section style="position:relative;padding:{{ secPad }}px {{ padX }}px 72px">
 <div style="position:relative;max-width:1240px;margin:0 auto">
 
 <h1 style="font-family: 'Barlow Condensed',sans-serif; font-weight: 700; font-size: clamp(46px,5.6vw,86px); line-height: .95; text-transform: uppercase; margin: 0 0 24px; max-width: 900px; color: #F9F9F9">Werde auch du <br><span style="color:#0195FF">Teil von <span style="color:#0195FF">POTI.</span></span></h1>
@@ -298,10 +309,10 @@ input,textarea,select,button{font-family:inherit}
 </div>
 </section>
 
-<section style="padding:{{ secPad }}px {{ padX }}px {{ secPad }}px">
+<section style="position:relative;z-index:1;padding:{{ secPad }}px {{ padX }}px {{ secPad }}px">
 <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:{{ splitCols }};gap:{{ gapLg }}px;align-items:start">
 <div>
-<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#0195FF;margin-bottom:14px">Offene Positionen</div>
+
 <div style="display:grid;gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09)">
 <div style="background:#1B1F25;padding:22px 24px">
 <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:23px;text-transform:uppercase;margin:0 0 6px">Elektriker / Elektroniker (m/w/d)</h3>
@@ -349,6 +360,7 @@ input,textarea,select,button{font-family:inherit}
 </div>
 </section>
 </div>
+</div>
 </sc-if>
 
 
@@ -359,7 +371,7 @@ input,textarea,select,button{font-family:inherit}
 <div style="display:grid;grid-template-columns:{{ footerCols }};gap:{{ footerGap }}px;align-items:start;justify-content:space-between;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.1)">
 <div>
 <img src="logo-transparent.png" alt="POTI ELEKTROTECHNIK" style="height: 39px; width: 82px; margin-bottom: 18px">
-<p style="font-size:15px;line-height:1.6;color:rgba(242,244,247,.5);margin:0;max-width:280px">Ihr Meisterbetrieb für Elektrotechnik in Ludwigsburg, Waiblingen und Umgebung.</p>
+<p style="font-size:15px;line-height:1.6;color:rgba(242,244,247,.5);margin:0;max-width:280px">Ihr Meisterbetrieb für Elektrotechnik in Stuttgart und Umgebung.</p>
 </div>
 <div id="impressum" style="justify-self:{{ footerRightAlign }}">
 <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(242,244,247,.42);margin-bottom:18px">Impressum</div><div style="font-size:15px;line-height:1.7;color:rgba(242,244,247,.7)">POTI ELEKTROTECHNIK&nbsp;<br>Piemonteser Straße 48<br>71729 Erdmannhausen<br>Tel.: +49 152 24835942<br>Mail: info@poti-elektrotechnik.de<br></div>
@@ -472,7 +484,8 @@ const REFS = [
   ["ref-img-4", "PV-Anlagen Komplettpaket", 4, "3/4"],
   ["ref-img-5", "Außeninstallation", 6, "4/3"],
   ["ref-img-6", "Rohinstallation", 6, "4/3"],
-  ["ref-img-7", "Altbausanierung", 12, "21/9"]
+  ["ref-img-7", "Altbausanierung", 12, "21/9"],
+  ["ref-img-8", "Neubau", 6, "4/3", "./neubau-rohinstallation.jpg"]
 ];
 
 const SERVICES = [
@@ -611,10 +624,10 @@ class Component extends DCLogic {
       return {
         num: String(i + 1).padStart(2, "0"),
         cardStyle: "position:absolute;margin:0;left:50%;top:50%;width:" + cardW + "px;height:" + cardH + "px;margin-left:" + (-cardW / 2) + "px;margin-top:" + (-cardH / 2) + "px;transform:rotateY(" + (i * step) + "deg) translateZ(" + radius + "px)",
-        imgId: r[0], label: r[1],
+        imgId: r[0], label: r[1], src: r[4] || "",
       };
     });
-    const stageStyle = "position:relative;height:" + (cardH + (mob ? 60 : 110)) + "px;perspective:" + (mob ? 1000 : 1600) + "px;overflow:hidden";
+    const stageStyle = "position:relative;height:" + Math.round(cardH * (mob ? 1.52 : 1.58)) + "px;perspective:" + (mob ? 1000 : 1600) + "px;overflow:hidden";
     const trackStyle = "position:absolute;inset:0;transform-style:preserve-3d;animation:potiSpin " + (mob ? 34 : 44) + "s linear infinite";
     const isHomePage = page === "home";
     const headerLogoOpacity = isHomePage ? heroHeaderOpacity : 1;
