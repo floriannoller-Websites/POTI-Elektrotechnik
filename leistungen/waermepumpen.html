@@ -22,31 +22,25 @@ body{margin:0;background:#14171C;color:#F2F4F7;font-family:Barlow,'Helvetica Neu
 a{color:#0195FF;text-decoration:none}
 a:hover{color:#5FBFFF}
 header{position:sticky;top:0;z-index:10;background:rgba(20,23,28,.92);border-bottom:1px solid rgba(255,255,255,.09);backdrop-filter:blur(6px)}
-.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
 header img{height:30px}
-header a.back{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,244,247,.7);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:999px}
-header a.back:hover{border-color:#0195FF;color:#0195FF}
+a.back{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#F2F4F7;border:1px solid #0195FF;padding:8px 14px;border-radius:999px;display:inline-block}
+a.back:hover{background:rgba(1,149,255,.14);color:#5FBFFF}
 main{padding:56px 24px 80px}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#0195FF;margin-bottom:16px}
 h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1.02;text-transform:uppercase;margin:0 0 20px;text-wrap:balance}
-.lead{font-size:19px;line-height:1.62;color:rgba(242,244,247,.75);margin:0 0 36px;max-width:640px}
-.hero-img{border:1px solid rgba(255,255,255,.12);aspect-ratio:16/9;overflow:hidden;margin:0 0 36px;max-width:640px;background:#1B1F25}
+.lead{font-size:19px;line-height:1.62;color:rgba(242,244,247,.75);margin:0 0 36px;max-width:800px}
+.hero-img{border:1px solid rgba(255,255,255,.12);aspect-ratio:21/9;overflow:hidden;margin:0 0 36px;max-width:100%;background:#1B1F25}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
-h2{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:26px;text-transform:uppercase;margin:40px 0 14px}
-p{font-size:16px;line-height:1.7;color:rgba(242,244,247,.72);margin:0 0 16px;max-width:640px}
+p{font-size:16px;line-height:1.7;color:rgba(242,244,247,.72);margin:0 0 16px;max-width:800px}
 .cta{display:flex;flex-wrap:wrap;gap:14px;margin:36px 0 48px}
 .cta a{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px;border-radius:999px}
 .cta a.primary{background:#0195FF;color:#000}
 .cta a.primary:hover{background:#3FAEFF;color:#000}
 .cta a.secondary{border:1px solid rgba(255,255,255,.22);color:#F2F4F7}
 .cta a.secondary:hover{border-color:#0195FF;color:#0195FF}
-.related{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;margin-top:48px}
-.related .eyebrow{margin-bottom:14px}
-.related-links{display:flex;flex-wrap:wrap;gap:10px}
-.related-links a{border:1px solid rgba(255,255,255,.14);padding:10px 16px;border-radius:999px;font-size:14px;color:#F2F4F7}
-.related-links a:hover{border-color:#0195FF;color:#0195FF}
-footer{border-top:1px solid rgba(255,255,255,.09);padding:28px 24px;color:rgba(242,244,247,.4);font-size:13px;max-width:760px;margin:0 auto}
+.next-section{border-top:1px solid rgba(255,255,255,.1);padding-top:32px;margin-top:48px}
+footer{border-top:1px solid rgba(255,255,255,.09);padding:28px 24px;color:rgba(242,244,247,.4);font-size:13px;max-width:940px;margin:0 auto}
 footer a{color:rgba(242,244,247,.55)}
 </style>
 </head>
@@ -60,7 +54,6 @@ footer a{color:rgba(242,244,247,.55)}
 </header>
 
 <main class="wrap">
-<div class="eyebrow">Leistung 4/10</div>
 <h1>Elektroanschluss für Ihre Wärmepumpe</h1>
 <p class="lead">Fachgerechter Elektroanschluss und sichere Inbetriebnahme Ihrer Wärmepumpe.</p>
 
@@ -74,13 +67,8 @@ footer a{color:rgba(242,244,247,.55)}
 <a class="secondary" href="mailto:info@poti-elektrotechnik.de?subject=Anfrage%20W%C3%A4rmepumpe">✉ Anfrage per E-Mail</a>
 </div>
 
-<div class="related">
-<div class="eyebrow">Weitere Leistungen</div>
-<div class="related-links">
-<a href="photovoltaik.html">Photovoltaik</a>
-<a href="zaehlerschraenke.html">Zählerschränke</a>
-<a href="wartung.html">Wartung &amp; Service</a>
-</div>
+<div class="next-section">
+<a class="back" href="e-check.html">Nächste Leistung: E-Check →</a>
 </div>
 </main>
 
